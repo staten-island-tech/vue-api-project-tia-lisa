@@ -1,36 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <h1 @click="fetchData">this is lisa's branchcd</h1>
-    </div>
-    <router-view />
+    <h1>this is lisa's branch</h1>
+    <Search></Search>
   </div>
 </template>
 
 <script>
+import Search from "./components/Search.vue";
+
 export default {
   name: "App",
+  components: {
+    Search,
+  },
   data() {
-    return {
-      anime: [],
-    };
+    return {};
   },
-  methods: {
-    fetchData: async function () {
-      try {
-        const response = await fetch(
-          " https://api.jikan.moe/v3/search/anime?q=naruto"
-        );
-        const data = await response.json();
-        this.anime = data.results;
-        console.log("link works");
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
+  methods: {},
 };
 </script>
 
