@@ -3,10 +3,36 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <h1 @click="fetchData">this is lisa's branchcd</h1>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      anime: [],
+    };
+  },
+  methods: {
+    fetchData: async function () {
+      try {
+        const response = await fetch(
+          " https://api.jikan.moe/v3/search/anime?q=naruto"
+        );
+        const data = await response.json();
+        this.anime = data.results;
+        console.log("link works");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
+</script>
 
 <style>
 #app {
