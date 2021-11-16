@@ -2,16 +2,19 @@
   <div id="app">
     <h1>this is lisa's branch</h1>
     <Search></Search>
+    <SearchResults></SearchResults>
   </div>
 </template>
 
 <script>
 import Search from "./components/Search.vue";
+import SearchResults from "./components/SearchResults.vue";
 
 export default {
   name: "App",
   components: {
     Search,
+    SearchResults,
   },
   data() {
     return {};
