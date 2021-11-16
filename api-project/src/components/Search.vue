@@ -65,8 +65,9 @@ export default {
 p {
   color: red;
 }
-input {
+#user-input {
   background-color: blueviolet;
-  width: 200px;
+  width: 90vw;
+  height: 30px;
 }
 </style>
