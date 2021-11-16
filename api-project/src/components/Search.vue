@@ -5,10 +5,15 @@
       <input type="text" />
       <input type="button" @click="fetchData" value="submit" />
     </form> -->
-    <p>search test</p>
     <form class="search">
-      <input type="text" id="user-input" />
-      <input type="button" value="submit" @click="fetchData" />
+      <input type="text" class="search-item" id="user-input" />
+      <input
+        type="button"
+        value="submit"
+        @click="fetchData"
+        class="search-item"
+        id="search-button"
+      />
     </form>
     <p id="display-here"></p>
   </div>
@@ -33,6 +38,8 @@ export default {
         console.log(this.fullLink);
         console.log(data.results[0].synopsis);
         console.log(data.results[0].airing);
+        document.getElementById("display-here").innerHTML =
+          data.results[0].synopsis;
       } catch (error) {
         console.log(error);
       }
@@ -65,9 +72,28 @@ export default {
 p {
   color: red;
 }
+#search {
+  display: flex;
+  justify-content: center;
+}
+.search {
+  background: orange;
+  height: 50px;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+}
+.search-item {
+  border-radius: 12px;
+}
+
 #user-input {
   background-color: blueviolet;
-  width: 90vw;
-  height: 30px;
+  width: 80vw;
+}
+
+#search-button {
+  background-color: blue;
+  width: 5vw;
 }
 </style>
