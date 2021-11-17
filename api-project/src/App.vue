@@ -1,9 +1,24 @@
 <template>
   <div id="app">
-
-
+    <h1>hello</h1>
+    <FeaturedPage></FeaturedPage>
   </div>
 </template>
+
+<script>
+import FeaturedPage from "./components/FeaturedPage.vue"
+
+export default {
+  name: "App",
+  components: {
+    FeaturedPage
+  },
+  data() {
+
+  }
+}
+</script>
+
 
 <style>
 #app {
