@@ -1,21 +1,29 @@
 <template>
-  <div id="search">
-    <!-- this is a form
-    <form class="search">
-      <input type="text" />
-      <input type="button" @click="fetchData" value="submit" />
-    </form> -->
-    <form class="search">
-      <input type="text" class="search-item" id="user-input" />
-      <input
-        type="button"
-        value="submit"
-        @click="fetchData"
-        class="search-item"
-        id="search-button"
-      />
-    </form>
-    <p id="display-here"></p>
+  <div>
+    <div id="search">
+      <form class="search">
+        <input type="text" class="search-item" id="user-input" />
+        <input
+          type="button"
+          value="submit"
+          @click="animeData"
+          class="search-item"
+          id="search-button"
+        />
+      </form>
+    </div>
+
+    <div class="details">
+      <p id="display-name"></p>
+      <p id="display-summary"></p>
+      <p id="display-airing"></p>
+    </div>
+
+    <div id="testing" v-for="data in topData" :key="data">
+      <img src="" alt="" />
+      <p>{{ data.title }}</p>
+      <p>Rating: {{ data.score }}</p>
+    </div>
   </div>
 </template>
 
@@ -25,10 +33,28 @@ export default {
   data() {
     return {
       name: "",
+      topData: [],
     };
+  },
+
+  created: function () {
+    this.fetchData();
   },
   methods: {
     fetchData: async function () {
+      try {
+        this.name = document.getElementById("user-input").value;
+        const response = await fetch(
+          `https://api.jikan.moe/v3/search/anime?q=&order_by=members&sort=desc&page=1`
+        );
+        const data = await response.json();
+        console.log(data);
+        this.topData = data.results;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    animeData: async function () {
       try {
         this.name = document.getElementById("user-input").value;
         const response = await fetch(
@@ -38,8 +64,11 @@ export default {
         console.log(this.fullLink);
         console.log(data.results[0].synopsis);
         console.log(data.results[0].airing);
-        document.getElementById("display-here").innerHTML =
+        document.getElementById("display-name").innerHTML = this.name;
+        document.getElementById("display-summary").innerHTML =
           data.results[0].synopsis;
+        document.getElementById("display-airing").innerHTML =
+          "Airing Status: " + data.results[0].airing;
       } catch (error) {
         console.log(error);
       }
