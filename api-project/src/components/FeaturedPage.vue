@@ -1,7 +1,9 @@
 <template>
     <div>
        <ul class="featured-list">
-            <li class="featured-list-item">testingggg</li>
+            <li class="featured-list-item" v-for="anime in animes" :key="anime.title">
+                {{anime.title}}
+            </li>
         </ul>
     </div>
 </template>
@@ -12,8 +14,12 @@ export default {
 
     data() {
         return{
-            animes:[]
+            animes:[],
         };
+    },
+
+    created: function(){
+        this.fetchAnime();
     },
 
 
@@ -21,7 +27,7 @@ export default {
         fetchAnime: async function(){
             try{
                 const result = await fetch(
-                    "https://api.jikan.moe/v3/search/anime?order_by=score"
+                    "https://api.jikan.moe/v3/search/anime?order_by=score&limit=10"
                 );
                  const data = await result.json();
                  this.animes = data.results

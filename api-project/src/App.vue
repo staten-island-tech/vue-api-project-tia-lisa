@@ -14,8 +14,9 @@ export default {
     FeaturedPage
   },
   data() {
-
-  }
+    return{
+        };
+  },
 }
 </script>
 
