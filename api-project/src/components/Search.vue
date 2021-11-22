@@ -19,10 +19,17 @@
       <p id="display-airing"></p>
     </div>
 
-    <div id="testing" v-for="data in topData" :key="data">
-      <img src="" alt="" />
-      <p>{{ data.title }}</p>
-      <p>Rating: {{ data.score }}</p>
+    <div class="results">
+      <div id="results-content" v-for="data in topData" :key="data">
+        <div class="results-image-contain">
+          <img class="results-image" :src="data.image_url" alt="image here" />
+        </div>
+
+        <div class="results-details">
+          <p class="results-title">{{ data.title }}</p>
+          <p class="results-rating">Rating: {{ data.score }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -40,12 +47,14 @@ export default {
   created: function () {
     this.fetchData();
   },
+
+  computed: {},
   methods: {
     fetchData: async function () {
       try {
         this.name = document.getElementById("user-input").value;
         const response = await fetch(
-          `https://api.jikan.moe/v3/search/anime?q=&order_by=members&sort=desc&page=1`
+          `https://api.jikan.moe/v3/search/anime?q=&order_by=members&sort=desc&page=1&limit=3`
         );
         const data = await response.json();
         console.log(data);
@@ -124,5 +133,19 @@ p {
 #search-button {
   background-color: blue;
   width: 5vw;
+}
+
+.results {
+  background-color: lavender;
+}
+
+#results-content {
+  background-color: rgb(255, 204, 204);
+  display: flex;
+}
+.results-image-contain {
+  height: 150px;
+  width: 100px;
+  object-fit: cover;
 }
 </style>
