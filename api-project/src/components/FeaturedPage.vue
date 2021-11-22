@@ -3,6 +3,7 @@
        <ul class="featured-list">
             <li class="featured-list-item" v-for="anime in animes" :key="anime.title">
                 {{anime.title}}
+                <img :src="anime.image_url" alt="">
             </li>
         </ul>
     </div>
@@ -40,3 +41,25 @@ export default {
     }
 }
 </script>
+<style>
+
+.featured-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.featured-list-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    height: 20rem;
+    width: 20rem;
+    margin: 2rem;
+}
+
+
+
+
+</style>
