@@ -52,7 +52,6 @@ export default {
   methods: {
     fetchData: async function () {
       try {
-        this.name = document.getElementById("user-input").value;
         const response = await fetch(
           `https://api.jikan.moe/v3/search/anime?q=&order_by=members&sort=desc&page=1&limit=3`
         );
@@ -106,7 +105,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+:root {
+  --image-height: 160px;
+  --image-width: 120px;
+}
 p {
   color: red;
 }
@@ -143,9 +146,8 @@ p {
   background-color: rgb(255, 204, 204);
   display: flex;
 }
-.results-image-contain {
-  height: 150px;
-  width: 100px;
-  object-fit: cover;
+.results-image {
+  height: var(--image-height);
+  width: var(--image-width);
 }
 </style>
