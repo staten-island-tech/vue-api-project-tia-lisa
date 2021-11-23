@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>hello</h1>
+
     <FeaturedPage></FeaturedPage>
   </div>
 </template>
