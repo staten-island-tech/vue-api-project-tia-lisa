@@ -64,6 +64,7 @@ export default {
     },
     animeData: async function () {
       try {
+        //
         this.name = document.getElementById("user-input").value;
         const response = await fetch(
           `https://api.jikan.moe/v3/search/anime?q=${this.name}`

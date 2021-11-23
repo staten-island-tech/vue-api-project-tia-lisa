@@ -1,20 +1,17 @@
 <template>
   <div id="app">
     <h1>this is lisa's branch</h1>
-    <Search></Search>
-    <SearchResults></SearchResults>
+    <SearchReal class="search-real"></SearchReal>
   </div>
 </template>
 
 <script>
-import Search from "./components/Search.vue";
-import SearchResults from "./components/SearchResults.vue";
+import SearchReal from "./components/SearchReal.vue";
 
 export default {
   name: "App",
   components: {
-    Search,
-    SearchResults,
+    SearchReal,
   },
   data() {
     return {};
@@ -43,5 +40,9 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.search-real {
+  float: right;
 }
 </style>
