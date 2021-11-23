@@ -1,12 +1,14 @@
 <template>
     <div class="container">
-        <h1 class="featured">Featured List</h1>
-       <ul class="featured-list">
-            <li class="featured-list-item" v-for="anime in animes" :key="anime.title">
-                <img :src="anime.image_url" alt="anime-cards" class="img">
-                <div>                {{anime.title}}</div>
-            </li>
-        </ul>
+        <div class="featured-container">
+            <h1 class="featured">Featured List</h1>
+            <ul class="featured-list">
+                    <li class="featured-list-item" v-for="anime in animes" :key="anime.title">
+                        <img :src="anime.image_url" alt="anime-cards" class="img">
+                        <div>                {{anime.title}}</div>
+                    </li>
+                </ul>
+        </div>
     </div>
 </template>
 
@@ -48,36 +50,44 @@ export default {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: #f4f4f4;
 }
 
 .featured-list{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 90rem;
+    width: 67.5rem;
     border-style: solid;
+    background-color: black;
 }
 
 .featured-list-item{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-size: cover;
-    height: 20rem;
-    width: 14rem;
-    margin-top: 2rem;
+    background-color: white;
+    height: 15rem;
+    width: 10.5rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
-    margin-right: 1rem;
+    margin-right: .25rem;
     border-style: solid;
     padding: 1rem;
     padding-bottom: 2rem;
+    font-size: .8rem;
+
 
 }
 
 .img{
-    height: 20rem;
-    width: 14rem;
-    margin-bottom: .5rem;
+    height: 15rem;
+    width: 10.5rem;
+    margin-bottom: .125rem;
+}
+
+.featured-container{
+    border-style: solid;
 }
 
 
