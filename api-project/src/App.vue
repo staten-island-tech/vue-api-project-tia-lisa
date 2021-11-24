@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-
+  <SearchReal class="search-real"></SearchReal>
     <FeaturedPage></FeaturedPage>
+  
   </div>
 </template>
 
 <script>
 import FeaturedPage from "./components/FeaturedPage.vue"
+import SearchReal from "./components/SearchReal.vue";
 
 export default {
   name: "App",
-  components: {
+  components: { 
+    SearchReal,
     FeaturedPage
   },
   data() {
@@ -20,6 +23,8 @@ export default {
 }
 </script>
 
+
+   
 
 <style>
 #app {
