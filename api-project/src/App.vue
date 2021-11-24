@@ -2,19 +2,22 @@
   <div id="app">
     <h1>this is lisa's branch</h1>
     <SearchReal class="search-real"></SearchReal>
-    <TestingOne></TestingOne>
+    <!-- <TestingOne></TestingOne>
+    <Search></Search> -->
   </div>
 </template>
 
 <script>
 import SearchReal from "./components/SearchReal.vue";
-import TestingOne from "./components/TestingOne.vue";
+// import TestingOne from "./components/TestingOne.vue";
+// import Search from "./components/Search.vue";
 
 export default {
   name: "App",
   components: {
     SearchReal,
-    TestingOne,
+    // TestingOne,
+    // Search,
   },
   data() {
     return {};
