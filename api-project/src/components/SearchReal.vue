@@ -49,7 +49,7 @@ export default {
         // );
 
         const response = await fetch(
-          `https://api.jikan.moe/v3/search/anime?q=${this.userInput}`
+          `https://api.jikan.moe/v3/search/anime?q=${this.userInput}&limit=3`
         );
         const data = await response.json();
         console.log(data);
