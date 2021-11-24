@@ -2,16 +2,19 @@
   <div id="app">
     <h1>this is lisa's branch</h1>
     <SearchReal class="search-real"></SearchReal>
+    <TestingOne></TestingOne>
   </div>
 </template>
 
 <script>
 import SearchReal from "./components/SearchReal.vue";
+import TestingOne from "./components/TestingOne.vue";
 
 export default {
   name: "App",
   components: {
     SearchReal,
+    TestingOne,
   },
   data() {
     return {};
@@ -40,9 +43,5 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
-
-.search-real {
-  float: right;
 }
 </style>
