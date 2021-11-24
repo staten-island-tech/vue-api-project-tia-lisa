@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="featured-container">
-            <h1 class="featured">Featured List</h1>
+            <h1 class="featured">Featured Sample</h1>
             <ul class="featured-list">
                     <li class="featured-list-item" v-for="anime in animes" :key="anime.title">
                         <img :src="anime.image_url" alt="anime-cards" class="img">
@@ -93,6 +93,6 @@ export default {
 
 
 
-
+/* https://colorhunt.co/palette/b983ff94b3fd94daff99feff */
 
 </style>

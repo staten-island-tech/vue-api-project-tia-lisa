@@ -1,6 +1,25 @@
 <template>
   <div id="app">
+
   <SearchReal class="search-real"></SearchReal>
+  <div class="nav"> 
+    <div class="featured">
+      <h1>featured</h1>
+  <div>
+    <h1>ongoing</h1>
+    <h1>completed</h1>
+  </div>
+    </div>
+    
+
+    <div class="genre">
+    <div>
+        <h1>action</h1>
+        <h1>romance</h1>
+        <h1>comedy</h1>
+      </div>
+    </div>
+  </div>
     <FeaturedPage></FeaturedPage>
   
   </div>
@@ -35,7 +54,7 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
+/* #nav {
   padding: 30px;
 }
 
@@ -46,5 +65,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+} */
+
+.nav{
+  display: flex;
+  justify-content: space-around;
 }
 </style>
