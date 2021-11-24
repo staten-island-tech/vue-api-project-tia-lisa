@@ -8,7 +8,7 @@
           name="search-bar"
           id="searchBar"
           placeholder="search"
-          v-on:keyup="searching"
+          v-on:keyup="fetchData"
           v-model="userInput"
         />
       </div>
@@ -38,17 +38,22 @@ export default {
       userInput: "",
     };
   },
-  created: function () {
-    this.fetchData();
-  },
+  // created: function () {
+  //   this.fetchData();
+  // },
   methods: {
     fetchData: async function () {
       try {
+        // const response = await fetch(
+        //   `https://api.jikan.moe/v3/search/anime?q=&order_by=members&sort=desc&page=1&limit=3`
+        // );
+
         const response = await fetch(
-          `https://api.jikan.moe/v3/search/anime?q=&order_by=members&sort=desc&page=1&limit=3`
+          `https://api.jikan.moe/v3/search/anime?q=${this.userInput}`
         );
         const data = await response.json();
         console.log(data);
+
         this.totalData = data.results;
       } catch (error) {
         console.log(error);
