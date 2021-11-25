@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <!-- title  -->
-
     <div class="nav">
       <div class="cosmos">
-        <router-link to="/">
+        <router-link class="router" to="/">
           <h1 class="nav-heading nav-section-text">cosmos</h1>
         </router-link>
       </div>
@@ -52,6 +50,10 @@ export default {
 
 :root {
   --main-font: "IBM Plex Serif", serif;
+  --first-color: #b983ff;
+  --second-color: #94b3fd;
+  --third-color: #94daff;
+  --fourth-color: #99feff;
 }
 #app {
   margin: 0;
@@ -73,15 +75,17 @@ h1 {
 }
 
 .cosmos {
-  background-color: rgb(202, 220, 255);
+  background-color: var(--first-color);
   height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-/* .nav-heading{
 
-} */
+.nav-heading {
+  color: var(--third-color);
+}
+
 .nav-section {
   width: 300px;
   background-color: red;
@@ -91,7 +95,11 @@ h1 {
   font-size: 25px;
 }
 
-router-link {
+.router {
   text-decoration: none;
+}
+
+.router:active {
+  color: aqua;
 }
 </style>
