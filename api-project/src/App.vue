@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <div class="logo">
-      <h1 class="logo-text">cosmos</h1>
-    </div>
-    <SearchReal class="search-real"></SearchReal>
-    <FeaturedPage></FeaturedPage>
-    <!-- <div class="nav"> 
-    <div class="featured">
-      <h1>featured</h1>
-  <div>
-    <h1>ongoing</h1>
-    <h1>completed</h1>
-  </div>
-    </div>
-    
+    <!-- title  -->
 
-    <div class="genre">
-    <div>
-        <h1>action</h1>
-        <h1>romance</h1>
-        <h1>comedy</h1>
+    <div class="nav">
+      <div class="cosmos">
+        <router-link to="/">
+          <h1 class="nav-heading nav-section-text">cosmos</h1>
+        </router-link>
+      </div>
+
+      <div class="sections">
+        <div class="nav-section">
+          <router-link to="/popular">
+            <h1 class="nav-section-text">popular</h1>
+          </router-link>
+        </div>
+        <div class="nav-section">
+          <router-link to="/genres">
+            <h1 class="nav-section-text">genres</h1>
+          </router-link>
+        </div>
+        <div class="nav-section">
+          <SearchReal class="search-real"></SearchReal>
+        </div>
       </div>
     </div>
-  </div> -->
+    <router-view />
+
+    <FeaturedPage></FeaturedPage>
   </div>
 </template>
 
@@ -55,9 +60,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: rgb(215, 239, 255);
+  font-family: var(--main-font);
 }
 
-.nav {
+.sections {
   display: flex;
   justify-content: space-around;
 }
@@ -66,11 +72,26 @@ h1 {
   font-family: var(--main-font);
 }
 
-.logo {
-  background-color: #94b3fd;
+.cosmos {
+  background-color: rgb(202, 220, 255);
   height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.logo-text {
-  color: #99feff;
+/* .nav-heading{
+
+} */
+.nav-section {
+  width: 300px;
+  background-color: red;
+}
+
+.nav-section-text {
+  font-size: 25px;
+}
+
+router-link {
+  text-decoration: none;
 }
 </style>

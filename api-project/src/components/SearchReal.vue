@@ -1,7 +1,6 @@
 <template>
   <div class="seach-real">
     <div class="search">
-      <h1>anime search</h1>
       <div id="searchBar-div">
         <input
           type="text"
@@ -53,8 +52,10 @@ export default {
         );
         const data = await response.json();
         console.log(data);
-
         this.totalData = data.results;
+        if (this.totalData === 0) {
+          console.log("things are loading");
+        }
       } catch (error) {
         console.log(error);
       }
@@ -93,6 +94,9 @@ input {
 }
 .results-list {
   background-color: rgb(240, 186, 147);
+  position: absolute;
+  transform: translateY(30px);
+  width: 300px;
 }
 #results-item {
   background-color: lavender;
