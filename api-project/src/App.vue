@@ -1,24 +1,24 @@
 <template>
   <div id="app">
     <div class="nav">
-      <div class="cosmos">
+      <div class="nav-heading">
         <router-link class="router" to="/">
-          <h1 class="nav-heading nav-section-text">cosmos</h1>
+          <h1 class="nav-heading-text">cosmos</h1>
         </router-link>
       </div>
 
       <div class="sections">
         <div class="nav-section">
-          <router-link to="/popular">
+          <router-link class="router" to="/popular">
             <h1 class="nav-section-text">popular</h1>
           </router-link>
         </div>
         <div class="nav-section">
-          <router-link to="/genres">
+          <router-link class="router" to="/genres">
             <h1 class="nav-section-text">genres</h1>
           </router-link>
         </div>
-        <div class="nav-section">
+        <div class="nav-section nav-search">
           <SearchReal class="search-real"></SearchReal>
         </div>
       </div>
@@ -74,32 +74,48 @@ h1 {
   font-family: var(--main-font);
 }
 
-.cosmos {
-  background-color: var(--first-color);
+/* style nav heading */
+.nav-heading {
+  background-color: lightblue;
   height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.nav-heading {
-  color: var(--third-color);
+.nav-heading-text {
+  letter-spacing: 15px;
 }
 
+/* style nav sections */
 .nav-section {
   width: 300px;
-  background-color: red;
+  background-color: lightpink;
 }
 
 .nav-section-text {
   font-size: 25px;
 }
 
+/* style nav search */
+.nav-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+}
+
+/* style router links */
 .router {
   text-decoration: none;
 }
 
 .router:active {
   color: aqua;
+}
+
+.router:hover {
+  text-decoration: underline;
+  text-decoration-color: aqua;
 }
 </style>

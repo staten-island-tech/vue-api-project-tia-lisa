@@ -1,5 +1,5 @@
 <template>
-  <div class="seach-real">
+  <div id="seach-real">
     <div class="search">
       <div id="searchBar-div">
         <input
@@ -73,6 +73,7 @@ export default {
   --image-width: 70px;
   --width-all: 20vw;
 }
+
 input {
   text-align: center;
 }
@@ -81,6 +82,7 @@ input {
   max-width: var(--width-all);
   display: flex;
   flex-direction: column;
+  width: 300px;
 }
 #searchBar-div {
   background-color: lightblue;
