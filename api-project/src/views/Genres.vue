@@ -1,19 +1,78 @@
 <template>
-  <div class="home">
-    <h1>genres</h1>
-    <!-- <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  <div class="genres">
+    <div class="genre-sections">
+      <div class="section-click">
+        <div class="section">
+          <h1 class="section-text" @click="updatePageA">action</h1>
+        </div>
+        <div class="section">
+          <h1 class="section-text" @click="updatePageB">romance</h1>
+        </div>
+        <div class="section">
+          <h1 class="section-text" @click="updatePageC">comedy</h1>
+        </div>
+      </div>
+      <GenreOne name="action" v-show="showingA"></GenreOne>
+      <GenreTwo name="romance" v-show="showingB"></GenreTwo>
+      <GenreTwo name="comedy" v-show="showingC"></GenreTwo>
+    </div>
+
+    <!-- <Ongoing name="airing" v-show="showingA"></Ongoing>
+      <Completed name="upcoming" v-show="showingB"></Completed> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
-
+import GenreOne from "@/components/GenreOne.vue";
+import GenreTwo from "@/components/GenreTwo.vue";
 export default {
   name: "Genres",
   components: {
-    // HelloWorld,
+    GenreOne,
+    GenreTwo,
+  },
+  data() {
+    return {
+      showingA: true,
+      showingB: false,
+      showingC: false,
+    };
+  },
+  methods: {
+    updatePageA() {
+      this.showingA = true;
+      this.showingB = false;
+      this.showingC = false;
+    },
+    updatePageB() {
+      this.showingA = false;
+      this.showingB = true;
+      this.showingC = false;
+    },
+    updatePageC() {
+      this.showingA = false;
+      this.showingB = false;
+      this.showingC = true;
+    },
   },
 };
 </script>
+
+<style>
+.section-click {
+  display: flex;
+  justify-content: space-around;
+}
+
+.section-text {
+  font-size: 25px;
+  color: var(--second-color);
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+}
+.section-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--second-color);
+}
+</style>

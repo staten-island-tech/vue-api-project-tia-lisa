@@ -24,24 +24,22 @@
       </div>
     </div>
     <router-view />
-
-    <FeaturedPage></FeaturedPage>
   </div>
 </template>
 
 <script>
-import FeaturedPage from "./components/FeaturedPage.vue";
 import SearchReal from "./components/SearchReal.vue";
 
 export default {
   name: "App",
   components: {
     SearchReal,
-    FeaturedPage,
   },
   data() {
     return {};
   },
+
+  methods: {},
 };
 </script>
 
@@ -74,27 +72,37 @@ h1 {
   font-family: var(--main-font);
 }
 
+/* filler home */
+.filler-img {
+  width: 90vw;
+}
+
 /* style nav heading */
 .nav-heading {
-  background-color: lightblue;
-  height: 100px;
+  height: 70px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* background-color: violet; */
 }
 
 .nav-heading-text {
   letter-spacing: 15px;
+  color: var(--second-color);
+  font-size: 35spx;
 }
 
 /* style nav sections */
 .nav-section {
   width: 300px;
-  background-color: lightpink;
+  /* background-color: lightpink; */
 }
 
 .nav-section-text {
   font-size: 25px;
+  color: var(--first-color);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
 }
 
 /* style nav search */
@@ -110,12 +118,8 @@ h1 {
   text-decoration: none;
 }
 
-.router:active {
-  color: aqua;
-}
-
 .router:hover {
   text-decoration: underline;
-  text-decoration-color: aqua;
+  text-decoration-color: var(--second-color);
 }
 </style>

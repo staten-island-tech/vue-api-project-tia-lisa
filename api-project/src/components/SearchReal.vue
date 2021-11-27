@@ -53,9 +53,6 @@ export default {
         const data = await response.json();
         console.log(data);
         this.totalData = data.results;
-        if (this.totalData === 0) {
-          console.log("things are loading");
-        }
       } catch (error) {
         console.log(error);
       }
@@ -76,32 +73,44 @@ export default {
 
 input {
   text-align: center;
+  font: var(--main-font);
+  letter-spacing: 3px;
+  color: var(--second-color);
+  border-color: var(--first-color);
+  border-style: solid;
+  background-color: rgb(223, 223, 253);
+}
+
+::placeholder {
+  color: var(--first-color);
+}
+
+input:focus {
+  background-color: rgb(241, 215, 255);
+  outline: none;
 }
 .search {
-  background-color: lightpink;
   max-width: var(--width-all);
   display: flex;
   flex-direction: column;
   width: 300px;
 }
-#searchBar-div {
+/* #searchBar-div {
   background-color: lightblue;
-}
+} */
 #searchBar {
-  background-color: peachpuff;
   width: 100%;
   padding: 0;
   height: 25px;
   border-radius: 12px;
 }
 .results-list {
-  background-color: rgb(240, 186, 147);
+  background-color: rgb(199, 233, 255);
   position: absolute;
-  transform: translateY(30px);
-  width: 300px;
+  transform: translateY(30px) translateX(5px);
+  width: 290px;
 }
 #results-item {
-  background-color: lavender;
   display: flex;
 }
 .results-image {
@@ -110,5 +119,15 @@ input {
 }
 .results-details {
   width: 100vw;
+  color: var(--first-color);
+}
+.results-title {
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+
+.results-rating {
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 </style>
