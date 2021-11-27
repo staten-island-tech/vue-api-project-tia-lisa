@@ -56,9 +56,9 @@ export default {
         alert(error);
       }
     },
-  },
-  detailShow() {
-    this.details = true;
+    detailShow() {
+      this.details = true;
+    },
   },
 };
 </script>
