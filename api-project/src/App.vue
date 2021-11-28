@@ -3,7 +3,7 @@
     <div class="nav">
       <div class="nav-heading">
         <router-link class="router" to="/">
-          <h1 class="nav-heading-text">cosmos</h1>
+          <h1 class="nav-heading-text">lorem ipsum</h1>
         </router-link>
       </div>
 
@@ -61,6 +61,7 @@ export default {
   text-align: center;
   background-color: rgb(215, 239, 255);
   font-family: var(--main-font);
+  overflow-x: hidden;
 }
 
 .sections {
