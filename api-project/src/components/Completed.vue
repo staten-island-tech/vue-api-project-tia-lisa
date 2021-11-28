@@ -122,6 +122,7 @@ p {
 
 .completed-item:hover {
   background-color: var(--third-color);
+  cursor: pointer;
 }
 
 .load-more {
