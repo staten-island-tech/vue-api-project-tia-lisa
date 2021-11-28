@@ -14,7 +14,7 @@
       </div>
       <GenreOne name="action" v-show="showingA"></GenreOne>
       <GenreTwo name="romance" v-show="showingB"></GenreTwo>
-      <GenreTwo name="comedy" v-show="showingC"></GenreTwo>
+      <GenreThree name="comedy" v-show="showingC"></GenreThree>
     </div>
 
     <!-- <Ongoing name="airing" v-show="showingA"></Ongoing>
@@ -25,11 +25,13 @@
 <script>
 import GenreOne from "@/components/GenreOne.vue";
 import GenreTwo from "@/components/GenreTwo.vue";
+import GenreThree from "@/components/GenreThree.vue";
 export default {
   name: "Genres",
   components: {
     GenreOne,
     GenreTwo,
+    GenreThree,
   },
   data() {
     return {
