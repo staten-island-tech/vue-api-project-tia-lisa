@@ -155,7 +155,7 @@ p {
 .details-container {
   width: 80%;
   height: 80%;
-  background-color: var(--third-color);
+  background-image: url("https://images.unsplash.com/photo-1506269996138-4c6d92fbd8a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2350&q=80");
   position: fixed;
   z-index: 1;
   left: 10%;
@@ -172,7 +172,7 @@ p {
 }
 
 .details-text {
-  background-color: var(--fourth-color);
+  background-color: rgb(153, 15, 153);
   width: 500px;
   word-wrap: break-word;
   display: flex;
