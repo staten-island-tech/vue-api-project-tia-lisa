@@ -111,6 +111,7 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 300px;
+  z-index: 1;
 }
 
 /* style router links */

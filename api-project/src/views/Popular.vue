@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="popular">
     <div class="top-sections">
       <div class="section-click">
         <div class="section">

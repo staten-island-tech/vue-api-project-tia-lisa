@@ -13,7 +13,12 @@
       </div>
 
       <div class="results-list">
-        <div id="results-item" v-for="data in totalData" :key="data">
+        <div
+          id="results-item"
+          v-for="(data, index) in totalData"
+          :key="data"
+          @click="detailShow(index)"
+        >
           <div class="results-image-contain">
             <img class="results-image" :src="data.image_url" alt="image here" />
           </div>
@@ -23,6 +28,9 @@
             <p class="results-rating">Rating: {{ data.score }}</p>
           </div>
         </div>
+        <div class="search-info" v-show="searchDetails">
+          <a id="details-text" :href="aLink" target="_blank">{{ aTitle }}</a>
+        </div>
       </div>
     </div>
   </div>
@@ -31,28 +39,28 @@
 <script>
 export default {
   name: "SearchReal",
+  components: {},
   data() {
     return {
       totalData: [],
       userInput: "",
+      searchDetails: false,
+      aLink: "",
+      aTitle: "",
     };
   },
-  // created: function () {
-  //   this.fetchData();
-  // },
   methods: {
     fetchData: async function () {
       try {
-        // const response = await fetch(
-        //   `https://api.jikan.moe/v3/search/anime?q=&order_by=members&sort=desc&page=1&limit=3`
-        // );
-
         const response = await fetch(
           `https://api.jikan.moe/v3/search/anime?q=${this.userInput}&limit=3`
         );
         const data = await response.json();
         console.log(data);
         this.totalData = data.results;
+        if (this.userInput.length === 0) {
+          this.searchDetails = false;
+        }
       } catch (error) {
         console.log(error);
       }
@@ -60,11 +68,20 @@ export default {
     searching() {
       console.log(this.userInput);
     },
+    detailShow(index) {
+      console.log(this.totalData[index]);
+      this.searchDetails = true;
+      this.aLink = this.totalData[index].url;
+      this.aTitle = this.totalData[index].title;
+    },
   },
 };
 </script>
 
 <style>
+#search-real {
+  z-index: 1;
+}
 :root {
   --image-height: 100px;
   --image-width: 70px;
@@ -112,6 +129,10 @@ input:focus {
 }
 #results-item {
   display: flex;
+}
+#results-item:hover {
+  background-color: rgb(183, 226, 255);
+  cursor: pointer;
 }
 .results-image {
   height: var(--image-height);

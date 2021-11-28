@@ -11,7 +11,13 @@
           :key="anime"
           @click="detailShow(index)"
         >
-          <img class="anime-img" :src="anime.image_url" alt="anime-img" />
+          <!-- making zoom effect -->
+          <div class="img-container">
+            <div class="img-content">
+              <img class="anime-img" :src="anime.image_url" alt="anime-img" />
+            </div>
+          </div>
+
           <p>{{ anime.title }}</p>
         </div>
 
@@ -19,13 +25,22 @@
         <div class="details-container" v-show="details">
           <h1 class="details-heading">{{ aTitle }} ({{ aType }})</h1>
           <div class="details-content">
-            <img class="details-img" :src="aImg" alt="details image" />
+            <!-- making zoom effect -->
+            <div class="img-container">
+              <div class="img-content">
+                <img class="details-img" :src="aImg" alt="details image" />
+              </div>
+            </div>
+
             <div class="details-text">
               <div class="dTwo">
                 <p id="details-text">Number of Episodes: {{ aEpisodes }}</p>
                 <p id="details-text">Rated {{ aScore }}/10</p>
-                <p id="details-text">Ranked {{ aRank }} in Airing Anime</p>
-                <p id="details-text">Find more details here: {{ aMore }}</p>
+                <p id="details-text">Ranked {{ aRank }} in Comedy Anime</p>
+                <p id="details-text">{{ aSummary }} ...</p>
+                <a id="details-text" :href="aMore" target="_blank"
+                  >Click For More</a
+                >
               </div>
             </div>
           </div>
@@ -57,6 +72,7 @@ export default {
       aMore: "",
       aScore: "",
       aRank: "",
+      aSummary: "",
     };
   },
   methods: {
@@ -86,7 +102,11 @@ export default {
       this.aEpisodes = this.animes[index].episodes;
       this.aMore = this.animes[index].url;
       this.aScore = this.animes[index].score;
-      this.aRank = this.animes[index].rank;
+      this.aRank = index + 1;
+
+      let fullSummary = this.animes[index].synopsis;
+      let maxlength = 100;
+      this.aSummary = fullSummary.substring(0, maxlength);
     },
     closeDetails() {
       this.details = false;
@@ -148,69 +168,5 @@ p {
   color: var(--first-color);
   font-size: 1.5rem;
   letter-spacing: 15px;
-}
-
-.details-container {
-  width: 80%;
-  height: 80%;
-  background-color: var(--third-color);
-  position: fixed;
-  z-index: 1;
-  left: 10%;
-  top: 10%;
-  border-radius: 15px;
-}
-
-.details-content {
-  /* background-color: blue; */
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  align-items: center;
-}
-
-.details-text {
-  background-color: var(--fourth-color);
-  width: 500px;
-  word-wrap: break-word;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 14px;
-}
-
-#details-text {
-  font-size: 20px;
-  color: var(--first-color);
-}
-
-.details-img {
-  width: 30%;
-  height: 90%;
-}
-
-.dTwo {
-  width: 400px;
-}
-.details-heading {
-  color: var(--first-color);
-}
-
-.close {
-  border: none;
-  width: 200px;
-  height: 40px;
-  border-radius: 5px;
-  font-family: var(--main-font);
-  color: var(--first-color);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-size: 20px;
-}
-
-.close:hover {
-  cursor: pointer;
-  background-color: var(--second-color);
 }
 </style>

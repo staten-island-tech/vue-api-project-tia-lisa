@@ -11,20 +11,36 @@
           :key="anime"
           @click="detailShow(index)"
         >
-          <img class="anime-img" :src="anime.image_url" alt="anime-img" />
+          <!-- making zoom effect -->
+          <div class="img-container pg-img">
+            <div class="img-content">
+              <img class="anime-img" :src="anime.image_url" alt="anime-img" />
+            </div>
+          </div>
+
           <p>{{ anime.title }}</p>
         </div>
         <!-- popup goes here -->
         <div class="details-container" v-show="details">
           <h1 class="details-heading">{{ aTitle }} ({{ aType }})</h1>
           <div class="details-content">
-            <img class="details-img" :src="aImg" alt="details image" />
+            <div class="img-div">
+              <div class="img-container">
+                <div class="img-content">
+                  <img class="details-img" :src="aImg" alt="details image" />
+                </div>
+              </div>
+            </div>
+
             <div class="details-text">
               <div class="dTwo">
                 <p id="details-text">Number of Episodes: {{ aEpisodes }}</p>
                 <p id="details-text">Rated {{ aScore }}/10</p>
                 <p id="details-text">Ranked {{ aRank }} in Airing Anime</p>
-                <p id="details-text">Find more details here: {{ aMore }}</p>
+                <p id="details-text">{{ aStart }} - {{ aEnd }}</p>
+                <a id="details-text" :href="aMore" target="_blank"
+                  >Click For More</a
+                >
               </div>
             </div>
           </div>
@@ -61,6 +77,8 @@ export default {
       aMore: "",
       aScore: "",
       aRank: "",
+      aStart: "",
+      aEnd: "",
     };
   },
   methods: {
@@ -90,6 +108,14 @@ export default {
       this.aMore = this.animes[index].url;
       this.aScore = this.animes[index].score;
       this.aRank = this.animes[index].rank;
+      this.aStart = this.animes[index].start_date;
+      this.aEnd = this.animes[index].end_date;
+      if (this.aEnd === null) {
+        this.aEnd = "TBD";
+      }
+      if (this.aEpisodes === null) {
+        this.aEpisodes = "TBD";
+      }
     },
     closeDetails() {
       this.details = false;
@@ -168,11 +194,12 @@ p {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  height: 70%;
   align-items: center;
 }
 
 .details-text {
-  background-color: rgb(153, 15, 153);
+  background-color: rgb(206, 217, 247);
   width: 500px;
   word-wrap: break-word;
   display: flex;
@@ -188,7 +215,7 @@ p {
 }
 
 .details-img {
-  width: 30%;
+  width: 340px;
   height: 90%;
 }
 
@@ -214,5 +241,17 @@ p {
 .close:hover {
   cursor: pointer;
   background-color: var(--second-color);
+}
+
+/* zoom */
+.img-container {
+  overflow: hidden;
+  position: relative;
+}
+.img-content {
+  transition: all 1s;
+}
+.img-content:hover {
+  transform: scale(1.1);
 }
 </style>
