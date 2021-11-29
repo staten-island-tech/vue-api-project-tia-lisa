@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
 
 <section class="gallery-container">
         <div class="gallery" aria-label="image-gallery">
@@ -52,21 +52,30 @@ export default {
 
 <style>
 
-
+.container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .gallery-container{
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
-    background-color: blue;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: gray;
 }
 
 .gallery {
   position: relative;
   height: 70vh;
-  width: 60vw;
+  width: 50vw;
   display: flex;
   align-items: center;
 }
@@ -131,7 +140,7 @@ ul, li {
   width: auto;
   padding: 16px;
   margin-top: -50px;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 3rem;
   user-select: none;
