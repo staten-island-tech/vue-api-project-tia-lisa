@@ -8,7 +8,7 @@
       </router-link>
     </div>
     <br />
-
+<Gallery></Gallery>
     <div class="home-two">
       <router-link class="router one-router" to="/genres">
         <h1 class="one-text two-text">browse genres</h1>
@@ -55,10 +55,12 @@
 
 <script>
 import FeaturedPage from "@/components/FeaturedPage.vue";
+import Gallery from "@/components/Gallery.vue";
 export default {
   name: "Home",
   components: {
     FeaturedPage,
+    Gallery,
   },
 };
 </script>
