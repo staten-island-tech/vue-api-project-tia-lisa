@@ -28,7 +28,7 @@
         <div class="genre genre-b">
           <div class="img-container">
             <div class="img-content">
-              <img class="genre-img" src="@/assets/name.jpg" alt="" />>
+              <img class="genre-img" src="@/assets/name.jpg" alt="" />
             </div>
           </div>
 
@@ -48,13 +48,18 @@
         </div>
       </div>
     </div>
+    <br />
+    <FeaturedPage></FeaturedPage>
   </div>
 </template>
 
 <script>
+import FeaturedPage from "@/components/FeaturedPage.vue";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    FeaturedPage,
+  },
 };
 </script>
 

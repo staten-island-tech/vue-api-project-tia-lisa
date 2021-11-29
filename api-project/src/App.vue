@@ -24,16 +24,24 @@
       </div>
     </div>
     <router-view />
+    <br />
+    <Footer
+      description="APCSP Api Project"
+      api="Jikan"
+      date="November 2021"
+    ></Footer>
   </div>
 </template>
 
 <script>
 import SearchReal from "./components/SearchReal.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     SearchReal,
+    Footer,
   },
   data() {
     return {};

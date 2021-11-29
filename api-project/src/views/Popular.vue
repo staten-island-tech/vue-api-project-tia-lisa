@@ -9,7 +9,7 @@
           <h1 class="section-text" @click="updatePageB">upcoming</h1>
         </div>
       </div>
-      <Ongoing name="airing" v-show="showingA"></Ongoing>
+      <Ongoing name="ongoing" v-show="showingA"></Ongoing>
       <Completed name="upcoming" v-show="showingB"></Completed>
     </div>
     <!-- <div class="top-sections">
